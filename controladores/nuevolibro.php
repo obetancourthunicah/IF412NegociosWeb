@@ -21,16 +21,18 @@ if ($method == "post"){
         }
         //grabando
         require_once('modelos/libros.php');
-        if(nuevoLibro($txtISBN,$txtTitulo,$txtEditorial,$intEdicion) && $validado){
-            header("location:index?page=libros&id=$txtISBN");
-        }else{
-            setData("page-subtitulo","Agregar Nuevo Libro");
-            setData("error-msg","Error al ingresar el Libro.");
-            setData("txtISBN",$txtISBN);
-            setData("txtTitulo",$txtTitulo);
-            setData("txtEditorial",$txtEditorial);
-            echo renderizarVista("nuevolibro",$pageData);
+        if($validado){
+            if(nuevoLibro($txtISBN,$txtTitulo,$txtEditorial,$intEdicion)){
+                header("location:index?page=libros&id=$txtISBN");
+                die();
+            }
         }
+         setData("page-subtitulo","Agregar Nuevo Libro");
+         setData("error-msg","Error al ingresar el Libro.");
+         setData("txtISBN",$txtISBN);
+         setData("txtTitulo",$txtTitulo);
+         setData("txtEditorial",$txtEditorial);
+         echo renderizarVista("nuevolibro",$pageData);
     }
 }
 ?>
