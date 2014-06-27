@@ -30,3 +30,39 @@ h1{
 .item span{
     display:block;
 }
+.error{
+    background-color:rgba(255,0,0,0.3);
+    padding:1em;
+    margin:1em 0em;
+}
+label{
+    display:inline-block;
+    font-weight: bold;
+    min-width:9em;
+}
+input, select{
+    box-sizing: content-box;
+    display:inline-block;
+    border:0.125em solid lightblue;
+    border-radius:0.2em;
+    padding:1.1em 1.3em;
+    min-width:20em;
+}
+select{
+    -webkit-appearance: none;
+    line-height: 1;
+    
+}
+input[type="submit"]{
+    background-color:lightblue;
+}
+
+.actionBtn{
+    display: inline-block;
+    background-color: lightgreen;
+    text-align: center;
+    padding:1em;
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+}

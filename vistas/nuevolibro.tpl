@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1>{{page-subtitulo}}</h1>
+    <div class="grid920" style="text-align:right"><a href="index.php?page=index" class="actionBtn">Regresar</a></div>
     <div class="grid920">
         <form action="index.php?page=nuevolibro" method="post">
              <label>ISBN</label>
@@ -35,6 +36,7 @@
                     <option value="4">Cuarta Edición</option>
                 </select>
                 <br/>
+                <label></label>
                 <input type="submit" name="btnInsert"
                        value="Agregar" id="btnInsert" />
         </form>

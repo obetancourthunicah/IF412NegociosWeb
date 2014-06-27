@@ -15,11 +15,14 @@ if ($method == "post"){
         $txtEditorial = $_POST["txtEditorial"];
         $intEdicion = intval($_POST["intEdicion"]);
         //Aqui debera ir validaciones de datos
-        
+        $validado = true;
+        if($txtISBN == ""){
+            $validado=false;
+        }
         //grabando
         require_once('modelos/libros.php');
-        if(nuevoLibro($txtISBN,$txtTitulo,$txtEditorial,$intEdicion)){
-            header("location:index.php?page=index");
+        if(nuevoLibro($txtISBN,$txtTitulo,$txtEditorial,$intEdicion) && $validado){
+            header("location:index?page=libros&id=$txtISBN");
         }else{
             setData("page-subtitulo","Agregar Nuevo Libro");
             setData("error-msg","Error al ingresar el Libro.");

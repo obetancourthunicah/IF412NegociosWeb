@@ -14,7 +14,8 @@
         <h2>{{titulo}}</h1>
         <h3>{{isbn}}</h2>
         <p>{{casaedit}}</p>
+        <a href="index.php?page=index" class="actionBtn">Regresar</a>
     </div>
-    <a href="index.php?page=index">Regresar</a>
+    
 </body>
 </html>
