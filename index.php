@@ -26,6 +26,9 @@
         case "libros":
             require_once("controladores/libros.php");
             break;
+        case "nuevolibro":
+            require_once("controladores/nuevolibro.php");
+            break;
         case "error":
             echo "error";
             break;

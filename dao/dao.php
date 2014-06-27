@@ -42,4 +42,12 @@
         }
         return $resultado;
     }
+    
+    function ejecutarNoQuery(&$conn, $sqlstr){
+        if($conn){
+            //Cuando son updates o Inserts devuelve false si falla el query.
+            return $conn->query($sqlstr);
+        }
+        return false;
+    }
 ?>

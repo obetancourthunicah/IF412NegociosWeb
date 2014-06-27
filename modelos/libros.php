@@ -13,4 +13,13 @@
         $libro = obtenerRegistro($conn, sprintf($sqlstr, $isbn));
         return $libro;
     }
+    function nuevoLibro($isbn, $titulo, $casaEdit, $edicion){
+        global $conn;
+        $sqlInsert = "INSERT INTO libros(isbn, titulo, casaedit , edicion) VALUES ('%s','%s','%s',%d);";
+        if(!ejecutarNoQuery($conn, sprintf($sqlInsert,$isbn,$titulo,$casaEdit,$edicion))){
+            return false;
+        }else{
+            return true;
+        }
+    }
 ?>
