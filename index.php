@@ -16,7 +16,9 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $method="post";
     }
-    //en este arreglo se iran depositando toda la información necesaria que será pasada a las plantillas para ser renderizadas
+    //$pageData
+    //en este arreglo se iran depositando toda la información necesaria que será pasada
+    //a las plantillas para ser renderizadas
     
     
     switch($page){
@@ -28,6 +30,15 @@
             break;
         case "nuevolibro":
             require_once("controladores/nuevolibro.php");
+            break;
+        case "postit":
+            require_once("controladores/postits.php");
+            break;
+        case "nuevopostit":
+            require_once("controladores/nuevopostit.php");
+            break;
+        case "productos":
+            require_once("controladores/productos.php");
             break;
         case "error":
             echo "error";

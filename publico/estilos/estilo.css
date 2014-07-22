@@ -2,7 +2,7 @@ body{
     font-size:16px;
     font-family:helvetica, arial, sans-serif;
     margin:0px;
-    padding:0px;
+    padding:1em;
 }
 h1{
     font-size:2em;
@@ -65,4 +65,34 @@ input[type="submit"]{
     font-weight: bold;
     text-decoration: none;
     color:black;
+}
+
+.board{
+    border:2em ridge #888888;
+    padding:1em;
+    background-image: url('../img/bcg.jpg');
+}
+
+.postit{
+    display: inline-block;
+    background-color:yellow;
+    padding:1em;
+    margin:1.5em;
+    width:13.75em;
+    min-height:13.75em;
+    box-shadow: 0.25em 0.25em 0.25em #444;
+}
+
+.postit:nth-child(2n){
+    -webkit-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    transform:rotate(10deg);
+}
+
+.postit:nth-child(3n){
+    -webkit-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform:rotate(-10deg);
 }

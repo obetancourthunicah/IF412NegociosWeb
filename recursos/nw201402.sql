@@ -18,6 +18,113 @@ USE `nw201402`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `blogs`
+--
+
+DROP TABLE IF EXISTS `blogs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `blogs` (
+  `id_blog` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ttl_blog` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `bdy_blog` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
+  `eml_autor` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `fch_blog` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_blog`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blogs`
+--
+
+LOCK TABLES `blogs` WRITE;
+/*!40000 ALTER TABLE `blogs` DISABLE KEYS */;
+INSERT INTO `blogs` VALUES (1,'Entry de Prueba','Este es un ejemplo de un micro blogging sistema para cualquier uso.','obetancourthunicah@gmail.com','2014-07-10 20:00:59'),(2,'Segundo Entry de Prueba','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id nisl non urna faucibus vulputate. Aliquam pharetra lorem vel dapibus aliquam. Mauris et tempus nunc. Morbi sodales lacus sit amet tincidunt sagittis. Curabitur lorem tortor, semper id fringilla non, pharetra non felis. Donec felis tellus, porttitor eu dapibus at, imperdiet a dui. Phasellus auctor orci sem, tempor semper dolor lobortis vitae. Etiam commodo urna vitae elit hendrerit, in condimentum eros imperdiet. Proin augue quam, placerat nec auctor nec, imperdiet nec lacus. In sed eleifend enim, id feugiat ligula. Morbi nec molestie arcu. Suspendisse potenti. Aliquam lacinia non velit non sodales. Nam scelerisque eu nulla ac feugiat. Aenean bibendum ultricies orci, in scelerisque mauris pharetra non. Pellentesque at dolor vel lacus tempus lobortis elementum blandit erat.\r\n\r\nAliquam ac iaculis diam. Morbi ac libero congue, elementum orci gravida, mattis mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas blandit nulla eget odio adipiscing, eget tincidunt nisi posuere. Nam vel tempor neque. Suspendisse in diam quis purus ullamcorper placerat tempor ut mi. In vitae porta diam. Curabitur semper, arcu sit amet tempor tempus, nunc ante consectetur risus, eu sodales nulla ante ac ante. Morbi ullamcorper tempus elit, ac venenatis libero sollicitudin vitae. Sed suscipit a felis non dictum. Aenean non blandit dui. Quisque congue odio eu metus pulvinar fringilla. Ut dignissim justo eget sapien cursus, varius tincidunt metus tincidunt. Donec cursus, nunc non commodo vulputate, tortor mi pretium tellus, eu semper justo dui ac purus.\r\n\r\nIn convallis quam sit amet arcu lacinia sodales. Cras quis neque molestie, malesuada est ut, tristique diam. Maecenas tempor, enim ut iaculis eleifend, massa nunc dictum tortor, sed aliquam elit ligula non est. Etiam posuere ornare ante et tempus. Phasellus sed viverra leo. Donec nec orci diam. Vestibulum at molestie ante. Integer ','obetancourthunicah@gmail.com','2014-07-10 20:18:28'),(3,'asdfgh','asdfghjklpoiuytrewaszdxfcghjk,mnbv dfghjkl,. ertuiokl,','sdfghj@sdfghj.com','2014-07-10 20:58:39');
+/*!40000 ALTER TABLE `blogs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carretilla`
+--
+
+DROP TABLE IF EXISTS `carretilla`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carretilla` (
+  `carretillaid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `carrfching` datetime DEFAULT NULL,
+  `carrFchLstUpt` datetime DEFAULT NULL,
+  `carrCckOutUser` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`carretillaid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carretilla`
+--
+
+LOCK TABLES `carretilla` WRITE;
+/*!40000 ALTER TABLE `carretilla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carretilla` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carretilla_d`
+--
+
+DROP TABLE IF EXISTS `carretilla_d`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carretilla_d` (
+  `carretillaid` bigint(20) NOT NULL,
+  `carretillaln` int(11) NOT NULL,
+  `productoid` bigint(20) NOT NULL,
+  `carrCtd` int(11) NOT NULL,
+  `carrPrc` decimal(11,2) DEFAULT NULL,
+  `carrIva` decimal(3,2) DEFAULT NULL,
+  PRIMARY KEY (`carretillaid`,`carretillaln`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carretilla_d`
+--
+
+LOCK TABLES `carretilla_d` WRITE;
+/*!40000 ALTER TABLE `carretilla_d` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carretilla_d` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empresa`
+--
+
+DROP TABLE IF EXISTS `empresa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `empresa` (
+  `empresa_id` int(11) NOT NULL AUTO_INCREMENT,
+  `empresa_abr` varchar(7) COLLATE utf8_bin NOT NULL,
+  `empresa_dsc` varchar(75) COLLATE utf8_bin NOT NULL,
+  `empresa_rtn` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `empresa_dir` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `empresa_tip` char(3) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`empresa_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empresa`
+--
+
+LOCK TABLES `empresa` WRITE;
+/*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+INSERT INTO `empresa` VALUES (1,'PART','Pura Artesanía','RTN010234','Tegucigalpa M.D.C Honduras','RTL');
+/*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `libros`
 --
 
@@ -39,8 +146,63 @@ CREATE TABLE `libros` (
 
 LOCK TABLES `libros` WRITE;
 /*!40000 ALTER TABLE `libros` DISABLE KEYS */;
-INSERT INTO `libros` VALUES ('00000000000001','Programación de Negocios Web Php Mysql MVC','UNICAH',1),('00000000000002','Seminario de Software MongoDb, Jquery Mobile, Php REST API','UNICAH',1),('00000000000003','Diseño de Portales WEB','UNICAH',1),('00000000000004','Tecnología y Educación Una praxis en educación Superior','UNICAH',1),('00000000000005','Prueba de Mysqli e Insert','UNICAH',2);
+INSERT INTO `libros` VALUES ('00000000000001','Programación de Negocios Web Php Mysql MVC','UNICAH',1),('00000000000002','Seminario de Software MongoDb, Jquery Mobile, Php REST API','UNICAH',1),('00000000000003','Diseño de Portales WEB','UNICAH',1),('00000000000004','Tecnología y Educación Una praxis en educación Superior','UNICAH',1),('00000000000005','Prueba de Mysqli e Insert','UNICAH',2),('00000000000006','Lean WEB Development','UNICAH',1),('00000000000007','SCRUM for Educators','UNICAH',2);
 /*!40000 ALTER TABLE `libros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `postits`
+--
+
+DROP TABLE IF EXISTS `postits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `postits` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `postName` varchar(80) COLLATE utf8_bin DEFAULT NULL,
+  `postbody` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `postpriority` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `postits`
+--
+
+LOCK TABLES `postits` WRITE;
+/*!40000 ALTER TABLE `postits` DISABLE KEYS */;
+INSERT INTO `postits` VALUES (1,'Post 1','Lero Lero Candelero',1),(2,'Post # 2','Se trata de mostrar como se integra un segundo post-it',0);
+/*!40000 ALTER TABLE `postits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos` (
+  `productoid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `producto` varchar(70) COLLATE utf8_bin NOT NULL,
+  `prodStock` int(11) DEFAULT NULL,
+  `prodPrc` decimal(11,2) DEFAULT NULL,
+  `prodIva` decimal(3,2) DEFAULT NULL,
+  `prodest` char(3) COLLATE utf8_bin DEFAULT NULL,
+  `produri` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`productoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos`
+--
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'Panadol',10,5.30,0.00,'ACT','0001.svg'),(2,'Panadol Antigripal',10,5.00,0.00,'ACT','0002.svg'),(3,'Acitromicina 500 mg',9,65.00,0.00,'ACT','0003.svg'),(4,'Levofloxacina',10,95.00,0.00,'ACT','0004.svg'),(5,'Agua Azul 16 oz fl',20,13.00,0.15,'ACT','0005.svg'),(6,'Enfamil Soya Premiun',4,769.00,0.10,'ACT','0006.svg');
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-26 16:37:27
+-- Dump completed on 2014-07-21 22:58:14
