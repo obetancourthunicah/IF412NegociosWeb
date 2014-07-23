@@ -40,6 +40,9 @@
         case "productos":
             require_once("controladores/productos.php");
             break;
+        case "addCrt":
+            require_once("controladores/carretilla.php");
+            break;
         case "error":
             echo "error";
             break;

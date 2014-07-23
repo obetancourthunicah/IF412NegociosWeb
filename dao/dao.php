@@ -50,4 +50,8 @@
         }
         return false;
     }
+    
+    function obtenerUltimoID(&$conn){
+        return $conn->insert_id;
+    }
 ?>

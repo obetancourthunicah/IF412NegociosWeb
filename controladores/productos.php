@@ -16,6 +16,7 @@ if ($method == "get"){
    }
    
    //TODO: Enlazar con la vista
+   setData('paginaActual', $pageNum);
    setData('paginas',$paginas);
    setData('productos',$productos);
    echo renderizarVista("productos",$pageData);

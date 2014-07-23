@@ -18,7 +18,7 @@
         <b>Precio: </b>{{prodPrc}}<br/>
         <b>Iva: </b>{{prodIva}}<br/>
         <b>Stock: </b>{{prodStock}}<br/>
-        <a href="index.php?page=addCrt,prdid={{productoid}}">Agregar a Carretilla</a>
+        <a href="index.php?page=addCrt&prdid={{productoid}}&pageNum={{paginaActual}}">Agregar a Carretilla</a>
     </div>
     {{endfor productos}}
    </div>
