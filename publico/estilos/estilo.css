@@ -66,6 +66,9 @@ input[type="submit"]{
     text-decoration: none;
     color:black;
 }
+.actionBtn:hover{
+    background-color: #48DD7B;
+}
 
 .board{
     border:2em ridge #888888;
@@ -95,4 +98,41 @@ input[type="submit"]{
     -o-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     transform:rotate(-10deg);
+}
+.showerror{
+    display:block;
+    padding:0.5em 1em;
+    font-size:0.9em;
+    font-weight: bold;
+    
+}
+.hideerror{
+    display:none;
+}
+
+.prd{
+    display: inline-block;
+    text-align:center;
+    width:18.125em;
+}
+.circle{
+    padding:1em;
+    margin-bottom: 1em;
+    border-radius: 100%;
+    background-color: #DDD;
+}
+.pager{
+    text-align: center;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.8em;
+}
+.pager a{
+    padding:0.4em;
+    text-decoration: none;
+    color:black;
+}
+.pager .sel{
+    background-color:lightblue;
+    border-radius: 15%;
 }

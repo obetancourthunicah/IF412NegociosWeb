@@ -20,6 +20,8 @@
     //en este arreglo se iran depositando toda la información necesaria que será pasada
     //a las plantillas para ser renderizadas
     
+    //para levantar los errores guardados en session.
+    require_once("controladores/middleware.php");
     
     switch($page){
         case "index":

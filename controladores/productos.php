@@ -12,7 +12,7 @@ if ($method == "get"){
    $totalPaginas = floor( $totaTmp / 3) + (($totaTmp%3==0)?0:1);
    $paginas = array();
    for($i=1;$i<=$totalPaginas;$i++){
-     $paginas[] = array("pagina"=>$i);
+     $paginas[] = array("pagina"=>$i,"selected"=>($i==$pageNum)?"sel":"");
    }
    
    //TODO: Enlazar con la vista

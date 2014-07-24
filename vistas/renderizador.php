@@ -1,5 +1,12 @@
 <?php
 function renderizarVista($vista, $datos){
+    $glberrores = obtenerErrores();
+    $datos["showerror"] = "hideerror";
+    if(count($glberrores)){
+        $datos["showerror"] = "showerror";
+        $datos["glberrors"] = $glberrores;
+        limpiarErrors();
+    }
     $str = cargarvista($vista);
     render($str, $datos);
     limpiar($str);
