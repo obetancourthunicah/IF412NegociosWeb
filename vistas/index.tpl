@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{page-titulo}}</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="publico/estilos/estilo.css" />
-    {{foreach links}}
-        <link rel="stylesheet" href="{{link}}" />
-    {{endfor links}}
-</head>
-<body>
-    <h1>{{page-titulo}}</h1>
-    <div class="grid920" style="text-align:right;">
+<div class="grid920" style="text-align:right;">
         <a href="index.php?page=nuevolibro" class="actionBtn">+ Nuevo Libro</a>
     </div>
     <div class="grid920">
@@ -23,5 +11,3 @@
         </div>
         {{endfor libros}}
     </div>
-</body>
-</html>

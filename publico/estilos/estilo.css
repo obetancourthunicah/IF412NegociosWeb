@@ -1,12 +1,55 @@
 body{
+    font-family: lucida, helvetica, sans-serif;
     font-size:16px;
-    font-family:helvetica, arial, sans-serif;
-    margin:0px;
-    padding:1em;
+    margin: 0;
+    padding: 0;
 }
-h1{
-    font-size:2em;
-    margin: 1em 2em;
+
+.menu{
+    background-color:white;
+    padding:0;
+    padding-right:5.5em;
+    margin:0;
+    text-align:right;
+    list-style: none;
+}
+.menu li{
+    display:inline-block;
+    padding:0;
+    margin:0;
+}
+.menu li a{
+    display:inline-block;
+    padding:1.5em 2em;
+    color: #9E3B33;
+    text-decoration: none;
+    text-align:center;
+}
+.menu li a:hover{
+    background-color:#DDD;
+}
+.menu li a.activo{
+    text-decoration: underline;
+}
+.logo{
+    position: absolute;
+    top:0.5em;
+    left:1.5em;
+}
+.logo img{
+    width:2.8em;
+    height:2.8em;
+    vertical-align: middle;
+}
+.logo h1{
+    position:absolute;
+    font-size:1.4em;
+    font-weight: bold;
+    min-width:20em;
+    top:0.4em;
+    left:2.3em;
+    margin:0;
+    padding:0;
 }
 .grid920{
     clear:both;
@@ -114,6 +157,13 @@ input[type="submit"]{
     display: inline-block;
     text-align:center;
     width:18.125em;
+    margin:1em 1em;
+    border-radius:0.25em;
+    box-shadow: 0em 0.115em 0.135em #888;
+    padding-bottom: 1.5em;
+}
+.prd:hover{
+    
 }
 .circle{
     padding:1em;
@@ -135,4 +185,13 @@ input[type="submit"]{
 .pager .sel{
     background-color:lightblue;
     border-radius: 15%;
+}
+
+.footer{
+    clear:both;
+    margin:0;
+    padding:2em;
+    background-color:#444;
+    color:white;
+    text-align:center;
 }

@@ -1,5 +1,5 @@
 <?php
-function renderizarVista($vista, $datos){
+function renderizarVista($vista, $datos, $layout="layout"){
     $glberrores = obtenerErrores();
     $datos["showerror"] = "hideerror";
     if(count($glberrores)){
@@ -7,7 +7,8 @@ function renderizarVista($vista, $datos){
         $datos["glberrors"] = $glberrores;
         limpiarErrors();
     }
-    $str = cargarvista($vista);
+    $mpstr = cargarLayout($layout);
+    $str = str_replace('{{{mvc_contenido}}}', cargarvista($vista), $mpstr);
     render($str, $datos);
     limpiar($str);
     return $str;
@@ -88,6 +89,11 @@ function renderRepeater($str, $data){
 function cargarVista($vista){
     $htmlstr = "";
     $htmlstr = preg_replace('/\s\s+/', ' ', file_get_contents('vistas/'.$vista.".tpl"));
+    return $htmlstr;
+}
+function cargarLayout($layout){
+    $htmlstr = "";
+    $htmlstr = preg_replace('/\s\s+/', ' ', file_get_contents('vistas/'.$layout.".tpl"));
     return $htmlstr;
 }
 

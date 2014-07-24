@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{page-titulo}}</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="publico/estilos/estilo.css" />
-    {{foreach links}}
-        <link rel="stylesheet" href="{{link}}" />
-    {{endfor links}}
-</head>
-<body>
-   <h2>Catálogo de Productos</h2>
-   <div class="grid920 {{showerror}}" style="background-color:orange;">
-        <ol>
-        {{foreach glberrors}}
-            <li>{{codigo}} | {{error}}</li>
-        {{endfor glberrors}}
-        </ol>
-   </div>
    <div class="grid920">
     {{foreach productos}}
     <div class="prd">
@@ -25,7 +6,8 @@
         <b>Precio: </b>{{prodPrc}}<br/>
         <b>Iva: </b>{{prodIva}}<br/>
         <b>Stock: </b>{{prodStock}}<br/><br/>
-        <a class="actionBtn" href="index.php?page=addCrt&prdid={{productoid}}&pageNum={{paginaActual}}">Agregar a Carretilla</a>
+        <a class="actionBtn" href="index.php?page=addCrt&prdid={{productoid}}&pageNum={{paginaActual}}">
+            <img  src="publico/imagenes/carretilla.svg" style="width:1.8em;vertical-align: middle"/> Agregar a Carretilla</a>
     </div>
     {{endfor productos}}
    </div>
@@ -34,6 +16,3 @@
             <a class="{{selected}}" href="index.php?page=productos&pageNum={{pagina}}">{{pagina}}</a> | 
         {{endfor paginas}}
    </div>
-   
-</body>
-</html>

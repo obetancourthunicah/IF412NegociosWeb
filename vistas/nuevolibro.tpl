@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{page-titulo}}</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="publico/estilos/estilo.css" />
-    {{foreach links}}
-        <link rel="stylesheet" href="{{link}}" />
-    {{endfor links}}
-</head>
-<body>
-    <h1>{{page-subtitulo}}</h1>
     <div class="grid920" style="text-align:right"><a href="index.php?page=index" class="actionBtn">Regresar</a></div>
     <div class="grid920">
         <form action="index.php?page=nuevolibro" method="post">
@@ -44,5 +32,3 @@
             {{error-msg}}
         </div>
     </div>
-</body>
-</html>
