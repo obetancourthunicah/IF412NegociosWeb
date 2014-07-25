@@ -19,23 +19,16 @@ if ($method == "get"){
             die();
         }
    }
+   if($_GET["page"]=="carretilla"){
+        require_once("modelos/carretilla.php");
+        setData('page-subtitulo',"Mi Carretilla de Compra");
+        setData("crrtproductos", obtenerProductosCarretillaXId(obtenerCarretillaCliente()));
+        echo renderizarVista("carretilla", $pageData);
+        
+   }
 }
 if ($method == "post"){
     
 }
 
-
-//-------------------------------
-function obtenerCarretillaCliente(){
-    if(isset($_COOKIE["crtid"])){
-        return $_COOKIE["crtid"];
-    }else{
-        //crear la cabecera de carretilla
-        //obtener el id del carretilla
-        require_once("modelos/carretilla.php");
-        $carretillaID = nuevaCarretilla();
-        setcookie("crtid", $carretillaID);
-        return $carretillaID;
-    }
-}
 ?>

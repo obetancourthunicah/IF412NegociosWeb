@@ -20,4 +20,22 @@
         global $app_errores;
         return $app_errores;
     }
+    
+    function obtenerCarretillaCliente(){
+        if(isset($_COOKIE["crtid"])){
+            return $_COOKIE["crtid"];
+        }else{
+            //crear la cabecera de carretilla
+            //obtener el id del carretilla
+            require_once("modelos/carretilla.php");
+            $carretillaID = nuevaCarretilla();
+            setcookie("crtid", $carretillaID);
+            return $carretillaID;
+        }
+    }
+    
+    if($method == "get"){
+      require_once("modelos/carretilla.php");
+      setData("ctdcarretilla",obtenerCtdProducto(obtenerCarretillaCliente()));
+    }
 ?>

@@ -45,6 +45,9 @@
         case "addCrt":
             require_once("controladores/carretilla.php");
             break;
+        case "carretilla":
+            require_once("controladores/carretilla.php");
+            break;
         case "error":
             echo "error";
             break;

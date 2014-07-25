@@ -20,4 +20,16 @@
                         sprintf($sqlInsert,$carretillaID,$linea,$productoID,$productoID)
                         );
     }
+    function obtenerCtdProducto($carretillaId){
+        global $conn;
+        $sqlstr = "select count(*) as productos from carretilla_d where carretillaid = %d;";
+        return obtenerRegistro($conn,
+                               sprintf($sqlstr, $carretillaId))["productos"];
+    }
+    function obtenerProductosCarretillaXId($carretillaId){
+        global $conn;
+        $sqlstr = "SELECT a.carretillaid, a.carretillaln,  a.productoid, b.producto, a.carrCtd, a.CarrPrc, a.carrIva FROM carretilla_d a inner join productos b on a.productoid = b.productoid where carretillaid = %d order by a.carretillaln;";
+        return obtenerRegistros($conn,
+                                sprintf($sqlstr, $carretillaId));
+    }
 ?>
