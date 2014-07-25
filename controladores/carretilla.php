@@ -21,8 +21,23 @@ if ($method == "get"){
    }
    if($_GET["page"]=="carretilla"){
         require_once("modelos/carretilla.php");
+        $crtProductos =  obtenerProductosCarretillaXId(obtenerCarretillaCliente());
+        $contador = 1;
+        $subtotal = 0;
+        $total = 0;
+        $iva = 0;
+        for($i=0; $i < count($crtProductos); $i++){
+            $crtProductos[$i]["hln"] = $contador;
+            $subtotal = $crtProductos[$i]["CarrPrc"] / (1 + $crtProductos[$i]["carrIva"]);
+            $total += $crtProductos[$i]["CarrPrc"];
+            $contador++;
+        }
+        $iva = $total - $subtotal;
         setData('page-subtitulo',"Mi Carretilla de Compra");
-        setData("crrtproductos", obtenerProductosCarretillaXId(obtenerCarretillaCliente()));
+        setData("crrtproductos", $crtProductos);
+        setData("crrtsubtotal", sprintf("%01.2f",$subtotal));
+        setData("crrtiva", sprintf("%01.2f",$iva));
+        setData("crrttotal", sprintf("%01.2f",$total));
         echo renderizarVista("carretilla", $pageData);
         
    }

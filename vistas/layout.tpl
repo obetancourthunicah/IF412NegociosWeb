@@ -12,7 +12,7 @@
     <ul class="menu">
                 <li><a href="index.php?page=libros">Libros</a></li>
                 <li><a href="index.php?page=postit">Postits</a></li>
-                <li><a href="index.php?page=productos">Catalogo</a></li>
+                <li><a href="index.php?page=productos">Catálogo</a></li>
                 <li><a href="index.php?page=carretilla">Carretilla <img src="publico/imagenes/carretillaflag.svg" style="vertical-align: middle; width:1.125em;padding:0;" /><b>{{ctdcarretilla}}</b></a></li>
     </ul>
     <div class="logo">

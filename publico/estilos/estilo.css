@@ -3,6 +3,7 @@ body{
     font-size:16px;
     margin: 0;
     padding: 0;
+    min-width: 57.5em;
 }
 
 .menu{
@@ -112,6 +113,17 @@ input[type="submit"]{
 .actionBtn:hover{
     background-color: #48DD7B;
 }
+.sm-actionBtn{
+    text-align: center;
+    vertical-align: middle;
+    padding:0.5em;
+    text-decoration: none;
+    color:black;
+}
+.sm-actionBtn:hover{
+    background-color: lightblue;
+}
+
 
 .board{
     border:2em ridge #888888;
@@ -190,8 +202,56 @@ input[type="submit"]{
 .footer{
     clear:both;
     margin:0;
+    margin-top:2em;
     padding:2em;
     background-color:#444;
     color:white;
     text-align:center;
+}
+
+/*grid system*/
+.gd-row{
+    clear:both;
+    overflow: auto;
+    display: block;
+    font-size: 0.9em;
+}
+.gd-head{
+    font-weight: bold;
+    border-bottom: solid 0.125em #AAA;
+}
+.gd-col-1, .gd-col-2, .gd-col-3, .gd-col-6, .gd-col-12{
+    display: block;
+    float: left;
+    vertical-align: middle;
+    padding-top:0.5em;
+    padding-bottom: 0.5em;
+}
+.gd-col-1{
+    width:8.3%;
+}
+.gd-col-2{
+    width:16.63%;
+}
+.gd-col-3{
+    width:24.96%
+}
+.gd-col-6{
+    width:50%;
+}
+.gd-col-12{
+    width:100%;
+}
+.gd-offset-8{
+    margin-left:66.64%;
+}
+.gd-offset-10{
+    margin-left:83.33%;
+}
+.right{
+    text-align: right;
+    padding-right: 0.065em;
+}
+.center{
+    text-align: center;
 }
