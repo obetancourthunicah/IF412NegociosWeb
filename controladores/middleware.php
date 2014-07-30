@@ -38,4 +38,26 @@
       require_once("modelos/carretilla.php");
       setData("ctdcarretilla",obtenerCtdProducto(obtenerCarretillaCliente()));
     }
+    
+    //security midleware
+    function loguear($id){
+        $_SESSION["userid"] = $id;
+    }
+    function logout(){
+        $_SESSION["userid"] = "";
+        unset($_SESSION["userid"]);
+    }
+    
+    function estaLogueado(){
+        if(isset($_SESSION["userid"])){
+            return $_SESSION["userid"] && true;
+        }
+        return false;
+    }
+    
+    if(estaLogueado()){
+        setData("security",array(array("userid"=>$_SESSION["userid"])));
+    }else{
+        setData("isnotlogged",array(array("nl"=>true)));
+    }
 ?>

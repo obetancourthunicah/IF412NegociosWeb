@@ -48,6 +48,15 @@
         case "carretilla":
             require_once("controladores/carretilla.php");
             break;
+        case "registrar":
+            require_once("controladores/registrar.php");
+            break;
+        case "login":
+            require_once("controladores/login.php");
+            break;
+        case "logout":
+            require_once("controladores/login.php");
+            break;
         case "error":
             echo "error";
             break;

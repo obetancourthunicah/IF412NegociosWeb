@@ -46,7 +46,7 @@ body{
     position:absolute;
     font-size:1.4em;
     font-weight: bold;
-    min-width:20em;
+    min-width:15em;
     top:0.4em;
     left:2.3em;
     margin:0;
@@ -81,16 +81,20 @@ body{
 }
 label{
     display:inline-block;
+    text-align:left;
     font-weight: bold;
-    min-width:9em;
+    min-width:10em;
 }
 input, select{
     box-sizing: content-box;
+    -moz-box-sizing: content-box;
     display:inline-block;
     border:0.125em solid lightblue;
     border-radius:0.2em;
     padding:1.1em 1.3em;
+    margin-bottom: 0.125em;
     min-width:20em;
+    font-size: 0.8em;
 }
 select{
     -webkit-appearance: none;
@@ -171,7 +175,7 @@ input[type="submit"]{
     width:18.125em;
     margin:1em 1em;
     border-radius:0.25em;
-    box-shadow: 0em 0.115em 0.135em #888;
+    box-shadow: 0em 0.095em 0.17em #888;
     padding-bottom: 1.5em;
 }
 .prd:hover{
@@ -250,7 +254,6 @@ input[type="submit"]{
 }
 .right{
     text-align: right;
-    padding-right: 0.065em;
 }
 .center{
     text-align: center;

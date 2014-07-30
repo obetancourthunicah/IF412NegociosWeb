@@ -28,7 +28,7 @@ if ($method == "get"){
         $iva = 0;
         for($i=0; $i < count($crtProductos); $i++){
             $crtProductos[$i]["hln"] = $contador;
-            $subtotal = $crtProductos[$i]["CarrPrc"] / (1 + $crtProductos[$i]["carrIva"]);
+            $subtotal += $crtProductos[$i]["CarrPrc"] / (1 + $crtProductos[$i]["carrIva"]);
             $total += $crtProductos[$i]["CarrPrc"];
             $contador++;
         }

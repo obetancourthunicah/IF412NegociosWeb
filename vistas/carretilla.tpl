@@ -14,21 +14,21 @@
                 <span class="gd-col-1 right">{{carrCtd}}</span>
                 <span class="gd-col-1 right">L{{CarrPrc}}</span>
                 <span class="gd-col-1 right">{{carrIva}}</span>
-                <span class="gd-col-2 right"><a href="index.php?page=rmvCrrt&ln={{carretillaln}}&prdID={{productoid}}" class="sm-actionBtn">Remover <img src="publico/imagenes/delete.svg" style="vertical-align: bottom;width: 1em;padding: 0;margin: 0;"></a></span>
+                <span class="gd-col-2 right"><a href="index.php?page=rmvCrrt&ln={{carretillaln}}" class="sm-actionBtn">Remover <img src="publico/imagenes/delete.svg" style="vertical-align: bottom;width: 1em;padding: 0;margin: 0;"></a></span>
             </div>
         {{endfor crrtproductos}}
         <br/>
         <div class="gd-row">
             <span class="gd-offset-10 gd-col-1"><b>Subtotal</b></span>
-            <span class="gd-col-1"><b>L{{crrtsubtotal}}</b></span>
+            <span class="gd-col-1 right"><b>L{{crrtsubtotal}}</b></span>
         </div>
         <div class="gd-row">
             <span class="gd-offset-10 gd-col-1"><b>Impuesto</b></span>
-            <span class="gd-col-1"><b>L{{crrtiva}}</b></span>
+            <span class="gd-col-1 right"><b>L{{crrtiva}}</b></span>
         </div>
         <div class="gd-row">
             <span class="gd-offset-10 gd-col-1"><b>Total</b></span>
-            <span class="gd-col-1"><b>L{{crrttotal}}</b></span>
+            <span class="gd-col-1 right"><b>L{{crrttotal}}</b></span>
         </div>
     </div>
     <br/>

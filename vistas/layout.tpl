@@ -14,6 +14,13 @@
                 <li><a href="index.php?page=postit">Postits</a></li>
                 <li><a href="index.php?page=productos">Catálogo</a></li>
                 <li><a href="index.php?page=carretilla">Carretilla <img src="publico/imagenes/carretillaflag.svg" style="vertical-align: middle; width:1.125em;padding:0;" /><b>{{ctdcarretilla}}</b></a></li>
+                {{foreach isnotlogged}}
+                    <li><a href="index.php?page=login">Iniciar Sesión</a></li>
+                    <li><a href="index.php?page=registrar">Regístrate</a></li>
+                {{endfor isnotlogged}}
+                {{foreach security}}
+                    <li><a href="index.php?page=logout">Cerrar Sesión</a></li>
+                {{endfor security}}
     </ul>
     <div class="logo">
         <img src="publico/imagenes/logo.svg" />

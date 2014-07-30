@@ -8,6 +8,27 @@
             sprintf($sqlstr, (($pageNum -1) * $pageItems), $pageItems)
                                 );
     }
+    
+    function obtenerProductosXCategoria($catid , $pageNum = 1, $pageItems=10){
+        global $conn;
+        $sqlstr = "Select * from productos where prodcat = %d limit %d, %d ;";
+        return obtenerRegistros( $conn,
+            sprintf($sqlstr, $catid ,(($pageNum -1) * $pageItems), $pageItems)
+                                );
+    }
+    
+    function obtenerTotalProdXCategoria($catid){
+        global $conn;
+        $sqlstr = "select count(*) as total from productos where prodcat = %d;";
+        return obtenerRegistro($conn,sprintf($sqlstr,$catid))["total"];
+    }
+    
+    function obtenerCategorias(){
+        global $conn;
+        $strsql = "select * from categorias;";
+        return obtenerRegistros($conn,$strsql);
+    }
+    
     function obtenerTotalProd(){
         global $conn;
         $sqlstr = "select count(*) as total from productos;";
