@@ -57,7 +57,7 @@ CREATE TABLE `carretilla` (
   `carrFchLstUpt` datetime DEFAULT NULL,
   `carrCckOutUser` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`carretillaid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +66,7 @@ CREATE TABLE `carretilla` (
 
 LOCK TABLES `carretilla` WRITE;
 /*!40000 ALTER TABLE `carretilla` DISABLE KEYS */;
+INSERT INTO `carretilla` VALUES (1,'2014-07-22 20:34:11','2014-07-22 20:34:11',''),(2,'2014-07-22 20:58:59','2014-07-22 20:58:59',''),(3,'2014-07-23 20:34:20','2014-07-23 20:34:20',''),(4,'2014-07-25 13:57:29','2014-07-25 13:57:29',''),(5,'2014-07-25 13:57:29','2014-07-25 13:57:29',''),(6,'2014-07-28 17:49:33','2014-07-28 17:49:33',''),(7,'2014-07-29 08:56:05','2014-07-29 08:56:05',''),(8,'2014-07-29 08:56:05','2014-07-29 08:56:05',''),(9,'2014-07-29 11:37:00','2014-07-29 11:37:00',''),(10,'2014-07-29 11:37:00','2014-07-29 11:37:00',''),(11,'2014-07-29 11:39:29','2014-07-29 11:39:29',''),(12,'2014-07-29 11:39:29','2014-07-29 11:39:29',''),(13,'2014-07-29 11:51:42','2014-07-29 11:51:42',''),(14,'2014-07-29 11:51:42','2014-07-29 11:51:42',''),(15,'2014-07-29 12:59:40','2014-07-29 12:59:40',''),(16,'2014-07-29 12:59:40','2014-07-29 12:59:40',''),(17,'2014-07-29 18:17:57','2014-07-29 18:17:57',''),(18,'2014-07-29 18:17:57','2014-07-29 18:17:57',''),(19,'2014-07-31 20:43:03','2014-07-31 20:43:03',''),(20,'2014-07-31 20:43:03','2014-07-31 20:43:03','');
 /*!40000 ALTER TABLE `carretilla` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +94,32 @@ CREATE TABLE `carretilla_d` (
 
 LOCK TABLES `carretilla_d` WRITE;
 /*!40000 ALTER TABLE `carretilla_d` DISABLE KEYS */;
+INSERT INTO `carretilla_d` VALUES (1,1,6,1,13.00,0.15),(2,1,6,1,95.00,0.00),(2,2,6,1,5.30,0.00),(3,1,6,1,5.30,0.00),(3,2,5,1,13.00,0.15),(3,3,5,1,13.00,0.15),(3,4,1,1,5.30,0.00),(3,5,3,1,65.00,0.00),(3,6,5,1,13.00,0.15),(3,7,5,1,13.00,0.15);
 /*!40000 ALTER TABLE `carretilla_d` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categorias`
+--
+
+DROP TABLE IF EXISTS `categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categorias` (
+  `categoriaID` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(45) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`categoriaID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categorias`
+--
+
+LOCK TABLES `categorias` WRITE;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` VALUES (0,'No Asignado'),(2,'Sistemas'),(3,'Industrial'),(4,'Civil');
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -163,7 +189,7 @@ CREATE TABLE `postits` (
   `postbody` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `postpriority` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +198,7 @@ CREATE TABLE `postits` (
 
 LOCK TABLES `postits` WRITE;
 /*!40000 ALTER TABLE `postits` DISABLE KEYS */;
-INSERT INTO `postits` VALUES (1,'Post 1','Lero Lero Candelero',1),(2,'Post # 2','Se trata de mostrar como se integra un segundo post-it',0);
+INSERT INTO `postits` VALUES (1,'Post 1','Lero Lero Candelero',1),(2,'Post # 2','Se trata de mostrar como se integra un segundo post-it',0),(3,'dd','dd',0),(4,'ee','ss',0);
 /*!40000 ALTER TABLE `postits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,6 +217,7 @@ CREATE TABLE `productos` (
   `prodIva` decimal(3,2) DEFAULT NULL,
   `prodest` char(3) COLLATE utf8_bin DEFAULT NULL,
   `produri` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `prodcat` int(11) DEFAULT '0',
   PRIMARY KEY (`productoid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -201,8 +228,38 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Panadol',10,5.30,0.00,'ACT','0001.svg'),(2,'Panadol Antigripal',10,5.00,0.00,'ACT','0002.svg'),(3,'Acitromicina 500 mg',9,65.00,0.00,'ACT','0003.svg'),(4,'Levofloxacina',10,95.00,0.00,'ACT','0004.svg'),(5,'Agua Azul 16 oz fl',20,13.00,0.15,'ACT','0005.svg'),(6,'Enfamil Soya Premiun',4,769.00,0.10,'ACT','0006.svg');
+INSERT INTO `productos` VALUES (1,'Panadol',10,5.30,0.00,'ACT','0001.svg',0),(2,'Panadol Antigripal',10,5.00,0.00,'ACT','0002.svg',1),(3,'Acitromicina 500 mg',9,65.00,0.00,'ACT','0003.svg',0),(4,'Levofloxacina',10,95.00,0.00,'ACT','0004.svg',2),(5,'Agua Azul 16 oz fl',20,13.00,0.15,'ACT','0005.svg',2),(6,'Enfamil Soya Premiun',4,769.00,0.10,'ACT','0006.svg',0);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarios` (
+  `usuarioid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `usuarioemail` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `usuarionombre` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `usuarioestado` char(3) COLLATE utf8_bin DEFAULT NULL,
+  `usuariofchingreso` datetime DEFAULT NULL,
+  `usuariolastlogin` datetime DEFAULT NULL,
+  `usuariopwdfallido` int(11) DEFAULT NULL,
+  `usuariopwd` varchar(128) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`usuarioid`),
+  UNIQUE KEY `usuarioemail_UNIQUE` (`usuarioemail`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -214,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-21 22:58:14
+-- Dump completed on 2014-07-31 20:47:48

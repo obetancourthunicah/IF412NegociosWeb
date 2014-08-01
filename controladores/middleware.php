@@ -59,5 +59,8 @@
         setData("security",array(array("userid"=>$_SESSION["userid"])));
     }else{
         setData("isnotlogged",array(array("nl"=>true)));
+        //Descomentar la siguiente linea para evitar navegación sin loguearse.
+       //if($page != "login" && $page !="registrar") header("location:index.php?page=login");
+        
     }
 ?>
