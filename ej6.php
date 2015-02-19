@@ -11,9 +11,19 @@
     $registro["status"] = $_POST["txtSts"];
 
     //Realizar la conexion con MySQL
+    $conn = new mysqli("127.0.0.1", "root", "root", "nw201501");
+    if($conn->errno){
+      die("DB no can: " . $conn->error);
+    }
     //Preparar el Insert Statement
+    $sqlstr = "INSERT INTO `charlas` ( `descripcion`, `lugar`, `fecha`, `contactemail`, `status`)";
+    $sqlstr .= "VALUES ( '". $registro["descripcion"] ." ' , '" . $registro["lugar"]  . "', '". $registro["fecha"] ."', '" . $registro["contactemail"] . "', '". $registro["status"] ."');";
+
     //Ejecutar el Insert Statement
+    $result = $conn->query($sqlstr);
+
     //Obtener el último codigo generado
+
     //Obtener los registros de la tabla
   }
 
