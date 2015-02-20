@@ -1,5 +1,12 @@
 <?php
   $registros = array();
+  $lasInsertID = 0;
+
+  //Realizar la conexion con MySQL
+  $conn = new mysqli("127.0.0.1", "root", "root", "nw201501");
+  if($conn->errno){
+    die("DB no can: " . $conn->error);
+  }
 
   if(isset($_POST["btnIns"])){
     $registro = array();
@@ -10,11 +17,7 @@
     $registro["contactemail"] = $_POST["txtCrr"];
     $registro["status"] = $_POST["txtSts"];
 
-    //Realizar la conexion con MySQL
-    $conn = new mysqli("127.0.0.1", "root", "root", "nw201501");
-    if($conn->errno){
-      die("DB no can: " . $conn->error);
-    }
+
     //Preparar el Insert Statement
     $sqlstr = "INSERT INTO `charlas` ( `descripcion`, `lugar`, `fecha`, `contactemail`, `status`)";
     $sqlstr .= "VALUES ( '". $registro["descripcion"] ." ' , '" . $registro["lugar"]  . "', '". $registro["fecha"] ."', '" . $registro["contactemail"] . "', '". $registro["status"] ."');";
@@ -23,9 +26,20 @@
     $result = $conn->query($sqlstr);
 
     //Obtener el último codigo generado
+    $lasInsertID = $conn->insert_id;
+
+  }
+  $sqlQuery  = "Select * from charlas;";
+
+  $resulCursor = $conn->query($sqlQuery);
+
+  while($registro = $resulCursor->fetch_assoc()){
+    $registros[] = $registro;
+  }
+
 
     //Obtener los registros de la tabla
-  }
+
 
 ?>
 <!DOCTYPE html>
@@ -60,6 +74,7 @@
     </form>
     <div>
       <h2>Datos</h2>
+      <?php if($lasInsertID) echo "Último ID generado = $lasInsertID" ?>
       <table>
         <tr>
           <th>Codigo</th>
@@ -69,14 +84,18 @@
           <th>Correo</th>
           <th>Estado</th>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      <?php
+        if(count($registros) > 0){
+          foreach($registros as $registro){
+            echo "<tr><td>".$registro["codigo"]."</td>";
+            echo "<td>".$registro["descripcion"]."</td>";
+            echo "<td>".$registro["lugar"]."</td>";
+            echo "<td>".$registro["fecha"]."</td>";
+            echo "<td>".$registro["contactemail"]."</td>";
+            echo "<td>".$registro["status"]."</td></tr>";
+          }
+        }
+        ?>
       </table>
     </div>
   </body>
