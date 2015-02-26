@@ -20,4 +20,14 @@
     return $registros;
   }
 
+  function insertRegistro($strsql){
+    GLOBAL $conn;
+    if($strsql != ""){
+      $result = $conn->query($strsql);
+      if(!$result) return 0;
+      return $conn->insert_id;
+    }
+    return 0;
+  }
+
  ?>
