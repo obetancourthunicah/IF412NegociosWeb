@@ -25,6 +25,7 @@ $productos = obtenerRegistros($sqlstr);
         <th>Inventario</th>
         <th>Estado</th>
         <th>Categoría</th>
+        <th>Update</th>
       </tr>
       <?php
       /*
@@ -42,7 +43,8 @@ $productos = obtenerRegistros($sqlstr);
           echo "<td>".$producto["prdbrc"]."</td>";
           echo "<td>".$producto["prdctd"]."</td>";
           echo "<td>".$producto["prdest"]."</td>";
-          echo "<td>".$producto["ctgid"]."</td></tr>";
+          echo "<td>".$producto["ctgid"]."</td>";
+          echo '<td><a href="ej9.php?action=upd&prdid='.$producto["prdid"].'"> -> </a></td></tr>';
         }
       ?>
     </table>
