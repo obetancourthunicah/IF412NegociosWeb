@@ -1,0 +1,18 @@
+body{
+    font-size:16px;
+    font-family: "Lucida Grande" , "Arial", sans-serif;
+}
+
+.error{
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    list-style: none;
+}
+.error li{
+    
+    background-color:red;
+    color:white;
+    padding:1em;
+    margin: 0px;
+}
