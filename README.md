@@ -12,6 +12,7 @@ con el módulo de php.
   * Manejo de Formularios HTML
   * Manejo de Funciones
   * Manejo de Seciones
+  
 3. Usar php conectado a una base de datos para
 CRUD de los registros.
 4. Usar un patron MVC para estructurar un proyecto
