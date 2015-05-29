@@ -16,8 +16,15 @@
         $contadorArreglo[$palabra] = 1;
       }
     }
+    arsort($contadorArreglo);
     $resultado .= "Numero Palabras únicas: " .
                   count($contadorArreglo) . "<br/>";
+    foreach($contadorArreglo as $palabra => $conteo){
+        $resultado .= "La palabra <b>". $palabra
+                    . "</b> es la de mayor frecuecia con "
+                    . $conteo . " repeticiones.";
+        break;
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -42,8 +49,6 @@
     <div>
       <?php
         echo $resultado;
-        print_r($contadorArreglo);
-
       ?>
     </div>
   </body>
