@@ -8,6 +8,9 @@
     require_once
     */
     $entradasNuevaOrden = obtenerEntradas();
+    $pizzasNuevaOrden = obtenerPizzas();
+    $bebidasNuevaOrden = obtenerBebidas();
+    $postresNuevaOrden = obtenerPostres();
     if(isset($_POST["btnGuardar"])){
 
     }
@@ -35,15 +38,36 @@
           </select><br/>
           <label for="cmbPizza">Pizzas</label>
           <select name="cmbPizza" id="cmbPizza">
-              <?php //todo ?>
+              <?php
+                    foreach($pizzasNuevaOrden as $codigoPizza => $pizza){
+                        echo '<option value="'.$codigoPizza.'">';
+                        $precioFinal = round($pizza["precio"] * (1+$pizza["impuesto"]),2);
+                        echo $pizza["nombre"]." - L" . $precioFinal;
+                        echo '</option>';
+                    }
+               ?>
           </select><br/>
           <label for="cmbBebida">Bebidas</label>
           <select name="cmbBebida" id="cmbBebida">
-              <?php //todo ?>
+              <?php
+                    foreach($bebidasNuevaOrden as $codigobebida => $bebida){
+                        echo '<option value="'.$codigobebida.'">';
+                        $precioFinal = round($bebida["precio"] * (1+$bebida["impuesto"]),2);
+                        echo $bebida["nombre"]." - L" . $precioFinal;
+                        echo '</option>';
+                    }
+               ?>
           </select><br/>
           <label for="cmbPostre">Postres</label>
           <select name="cmbPostre" id="cmbPostre">
-              <?php //todo ?>
+              <?php
+                    foreach($postresNuevaOrden as $codigopostre => $postre){
+                        echo '<option value="'.$codigopostre.'">';
+                        $precioFinal = round($postre["precio"] * (1+$postre["impuesto"]),2);
+                        echo $postre["nombre"]." - L" . $precioFinal;
+                        echo '</option>';
+                    }
+               ?>
           </select><br/>
           <input type="submit"
             id="btnGuardar"
