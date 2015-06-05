@@ -121,6 +121,34 @@ function obtenerPostres(){
     return $postres;
 }
 
+function obtenerVueltos(){
+    return array(
+        "VLT100" => array(
+            "codigo" => "VLT100",
+            "nombre" => "Vuelto de L100 ",
+            "nominal" => 100
+        ),
+        "VLT500" => array(
+            "codigo" => "VLT500",
+            "nombre" => "Vuelto de L500 ",
+            "nominal" => 500
+        )
+    );
+}
+
+function nuevaOrden(){
+    $nuevaOrden = array(
+        "CodigoEntrada" =>"",
+        "CodigoPizza" => "",
+        "CodigoBebida" =>"",
+        "CodigoPostre" => "",
+        "Nombre" => "",
+        "Direccion" => "",
+        "Telefono" => "",
+        "Pago" => ""
+    );
+    return $nuevaOrden;
+}
 
 
 ?>

@@ -12,7 +12,14 @@
     $bebidasNuevaOrden = obtenerBebidas();
     $postresNuevaOrden = obtenerPostres();
     if(isset($_POST["btnGuardar"])){
-
+        $nuevaOrden = nuevaOrden();
+        $nuevaOrden["CodigoEntrada"] = $_POST["cmbEntrada"];
+        $nuevaOrden["CodigoPizza"] = $_POST["cmbPizza"];
+        $nuevaOrden["CodigoBebida"] = $_POST["cmbBebida"];
+        $nuevaOrden["CodigoPostre"] = $_POST["cmbPostre"];
+        $_SESSION["newOrder"] = $nuevaOrden;
+        header("Location: obtenercliente.php");
+        die();
     }
 
 ?>
