@@ -12,6 +12,17 @@
     if($conn->errno){
         die($conn->error);
     }
-    
+
+    function obtenerProductos(){
+        global $conn;
+        $Productos = array();
+        $cursorProductos = $conn->query("select * from productos;");
+        if($cursorProductos){
+            while($producto = $cursorProductos->fetch_assoc()){
+                $Productos[] = $producto;
+            }
+        }
+        return $Productos;
+    }
 
  ?>

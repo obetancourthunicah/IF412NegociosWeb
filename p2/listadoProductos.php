@@ -1,4 +1,5 @@
 <?php
+    require_once("libreria.php");
     /*
     workwith \ trabajar con
 
@@ -13,7 +14,7 @@
     detalleProducto.php
 
     */
-
+    $Productos = obtenerProductos();
 
 
 ?>
@@ -69,19 +70,22 @@
                 <th>Estado</th>
                 <th>Acciones</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href>Ver</a>
-                    <a href>Editar</a>
-                    <a href>Eliminar</a>
-                </td>
-            </tr>
+        <?php
+            foreach($Productos as $producto){
+                echo "<tr>";
+                echo "<td>".$producto["prdcod"]."</td>";
+                echo "<td>".$producto["prddsc"]."</td>";
+                echo "<td>".$producto["ctgcod"]."</td>";
+                echo "<td>".$producto["prdprc"]."</td>";
+                echo "<td>".$producto["prdstk"]."</td>";
+                echo "<td>".$producto["prdest"]."</td>";
+                echo "<td>";
+                echo "<a href>Ver</a> | ";
+                echo "<a href>Editar</a> | ";
+                echo "<a href>Eliminar</a>";
+                echo "</td></tr>";
+            }
+        ?>
         </table>
     </div>
   </body>
