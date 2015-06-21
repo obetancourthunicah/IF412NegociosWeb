@@ -1,6 +1,37 @@
 <?php
     require_once("libreria.php");
-    
+    $mode = "";
+    $titulo = "";
+    $producto = array();
+    if(isset($_GET["mode"])){
+        $mode = $_GET["mode"];
+
+        switch($mode){
+            case "INS":
+                $titulo = "Nuevo Producto";
+                break;
+            case "UPD":
+                $titulo = "Actualizar Producto";
+                break;
+            case "DSP":
+                $producto = obtenerProducto($_GET["prdcod"]);
+                if(count($producto)){
+                    $titulo = "Detalle del Producto ". $producto["prddsc"];
+                }
+                break;
+            case "DEL":
+                $titulo = "Eliminar Producto";
+                break;
+            default:
+                header("location:listadoProductos.php");
+                die();
+        }
+
+
+    }else{
+        header("location:listadoProductos.php");
+        die();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +40,7 @@
     <title>Detalle de Producto</title>
   </head>
   <body>
-     <h1>Producto</h1>
+     <h1><?php echo $titulo;?></h1>
      <form action="detalleProducto.php" method="post">
          <table>
             <tr>

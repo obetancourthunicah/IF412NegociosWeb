@@ -1,5 +1,21 @@
 <?php
+    session_start();
     require_once("libreria.php");
+    $lst_prddsc_f = "";
+    $lst_prdest_f = "ACT";
+    if(isset($_SESSION["lst_prddsc_f"])){
+        $lst_prddsc_f = $_SESSION["lst_prddsc_f"];
+        $lst_prdest_f = $_SESSION["lst_prdest_f"];
+    }
+
+    if(isset($_POST["btnFiltrar"])){
+        $lst_prddsc_f = $_POST["txtPrdDsc"];
+        $lst_prdest_f = $_POST["cmbPrdEst"];
+        $_SESSION["lst_prddsc_f"] = $lst_prddsc_f;
+        $_SESSION["lst_prdest_f"] = $lst_prdest_f;
+    }
+
+
     /*
     workwith \ trabajar con
 
@@ -14,7 +30,7 @@
     detalleProducto.php
 
     */
-    $Productos = obtenerProductos();
+    $Productos = obtenerProductos($lst_prddsc_f,$lst_prdest_f);
 
 
 ?>
@@ -33,20 +49,29 @@
                 <input type="text"
                     name="txtPrdDsc"
                     id="txtPrdDsc"
-                    placeholder="Descripción del Producto" />
+                    placeholder="Descripción del Producto"
+                    value="<?php echo $lst_prddsc_f; ?>" />
                 <br/>
                 <label for="cmbPrdEst">Estado</label>
                 <select name="cmbPrdEst" id="cmbPrdEst">
-                    <option value="ACT">
+                    <option value="ACT"
+                        <?php  echo ($lst_prdest_f == "ACT")?"selected=selected":"";  ?>
+                    >
                         Activo
                     </option>
-                    <option value="INA">
+                    <option value="INA"
+                        <?php  echo ($lst_prdest_f == "INA")?"selected=selected":"";  ?>
+                    >
                         Inactivo
                     </option>
-                    <option value="RTR">
+                    <option value="RTR"
+                        <?php  echo ($lst_prdest_f == "RTR")?"selected=selected":"";  ?>
+                    >
                         Retirado
                     </option>
-                    <option value="PLN">
+                    <option value="PLN"
+                        <?php  echo ($lst_prdest_f == "PLN")?"selected=selected":"";  ?>
+                    >
                         Stand By
                     </option>
                 </select>
@@ -59,7 +84,7 @@
     </div>
     <div>
         <h2>Productos</h2>
-        <a href>Ingresar Nuevo Producto</a>
+        <a href="detalleProducto.php?mode=INS">Ingresar Nuevo Producto</a>
         <table>
             <tr>
                 <th>Cod.</th>
@@ -80,9 +105,9 @@
                 echo "<td>".$producto["prdstk"]."</td>";
                 echo "<td>".$producto["prdest"]."</td>";
                 echo "<td>";
-                echo "<a href>Ver</a> | ";
-                echo "<a href>Editar</a> | ";
-                echo "<a href>Eliminar</a>";
+                echo '<a href="detalleProducto.php?mode=DSP&prdcod='.$producto["prdcod"].'">Ver</a> | ';
+                echo '<a href="detalleProducto.php?mode=UPD&prdcod='.$producto["prdcod"].'">Editar</a> | ';
+                echo '<a href="detalleProducto.php?mode=DEL&prdcod='.$producto["prdcod"].'">Eliminar</a>';
                 echo "</td></tr>";
             }
         ?>
