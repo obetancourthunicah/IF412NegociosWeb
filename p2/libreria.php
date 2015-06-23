@@ -66,7 +66,7 @@
                         intval($ctgcod),
                         floatval($prdprc),
                         intval($prdstk),
-                        $conn->real_esacpe_string($prdest)
+                        $conn->real_escape_string($prdest)
                      );
 
         return $conn->query($insertSql);
@@ -84,7 +84,7 @@
                         intval($ctgcod),
                         floatval($prdprc),
                         intval($prdstk),
-                        $conn->real_esacpe_string($prdest),
+                        $conn->real_escape_string($prdest),
                         intval($prdcod)
                      );
 
@@ -107,5 +107,8 @@
         //False si algun error sucedió.
     }
 
-
+    function getLastInsertID(){
+        global $conn;
+        return $conn->insert_id;
+    }
  ?>
