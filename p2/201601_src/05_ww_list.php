@@ -1,7 +1,7 @@
 <?php
     require_once('DAO/libdb.php');
 
-    $sqlstr = 'Select * from tareas';
+    $sqlstr = 'SELECT a.idtarea, a.tarea, a.prioridad,a.estado, a.idcategoria, b.categoria FROM tareas a inner join categorias b on a.idcategoria = b.idcategoria;';
     $tareas = obtenerRegistros($sqlstr);
 
 ?>
@@ -26,6 +26,9 @@
                   Estado
               </th>
               <th>
+                  Categoría
+              </th>
+              <th>
                   Acciones
               </th>
           </tr>
@@ -34,6 +37,7 @@
           echo '<tr><td>'.$tarea['tarea'].'</td>';
           echo '<td>'.$tarea["prioridad"].'</td>';
           echo '<td>'.$tarea["estado"].'</td>';
+          echo '<td>'.$tarea["categoria"].'</td>';
           echo '<td><form action="05_ww_crud.php"';
           echo 'method="post"><input type="hidden"';
           echo 'name="idtarea" value="'.$tarea["idtarea"].'"/>';

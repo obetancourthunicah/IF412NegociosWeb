@@ -5,16 +5,20 @@
     $txtTarea = "";
     $cmbPrioridad = "media";
     $cmbEstado = "PND";
+    $idcategoria = 1;
+    $categorias = obtenerRegistros('select * from categorias;');
 
     if(isset($_POST["btnGuardar"])){
         $txtTarea = $_POST["txtTarea"];
         $cmbPrioridad = $_POST["cmbPrioridad"];
         $cmbEstado = $_POST["cmbEstado"];
-        $sqlinsert= "insert into tareas (tarea,prioridad,estado) value ('%s','%s','%s');";
+        $idcategoria = $_POST["cmbcategoria"];
+        $sqlinsert= "insert into tareas (tarea,prioridad,estado,idcateoria) value ('%s','%s','%s',%d);";
         $sqlinsert = sprintf($sqlinsert,
                         $txtTarea,
                         $cmbPrioridad,
-                        $cmbEstado
+                        $cmbEstado,
+                        $idcategoria
                     );
         if(ejecutarNonQuery($sqlinsert)){
             echo '<script>alert("Tarea Guardada Exitosamente!");';
@@ -27,12 +31,14 @@
         $txtTarea = $_POST["txtTarea"];
         $cmbPrioridad = $_POST["cmbPrioridad"];
         $cmbEstado = $_POST["cmbEstado"];
+        $idcategoria = $_POST["cmbcategoria"];
 
-        $updateSql = "update tareas set tarea='%s', prioridad='%s', estado='%s' where idtarea=%d;";
+        $updateSql = "update tareas set tarea='%s', prioridad='%s', estado='%s', idcategoria=%d where idtarea=%d;";
         $updateSql = sprintf($updateSql,
                              $txtTarea,
                              $cmbPrioridad,
                              $cmbEstado,
+                             $idcategoria,
                              $idtarea
                             );
         if(ejecutarNonQuery($updateSql)){
@@ -69,6 +75,7 @@
         $cmbPrioridad = $tarea["prioridad"];
         $cmbEstado = $tarea["estado"];
         $idtarea = $tarea["idtarea"];
+        $idcategoria = $tarea["idcategoria"];
     }
 
  ?>
@@ -145,6 +152,24 @@
                     >
                         Completado
                     </option>
+                 </select>
+             </td>
+         </tr>
+         <tr>
+             <th>
+                 Estado
+             </th>
+             <td>
+                 <select name="cmbcategoria">
+                     <?php
+                     foreach($categorias as $cat){
+                        echo '<option value="'.$cat["idcategoria"].'"';
+                        if($cat["idcategoria"] == $idcategoria){
+                            echo " selected ";
+                        }
+                        echo '>'.$cat["categoria"].'</option>';
+                     }
+                    ?>
                  </select>
              </td>
          </tr>
